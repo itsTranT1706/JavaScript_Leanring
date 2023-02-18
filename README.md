@@ -1,2 +1,2 @@
 # JavaScript_Leanring
-Update
+JavaScript
