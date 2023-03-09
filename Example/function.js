@@ -116,47 +116,47 @@
 // console.log(res);
 
 //-------MapArray
-let arr=[1,2,3,4,5,6,7,8,9,10];
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // for (let i=0;i<arr.length;i++){
 //            arr[i]=arr[i]*arr[i];
 //           }
 // console.log(`check value ${arr}`);
- let mapArr=arr.map((item)=>{
-          // item=item*item;
-          return item;
- })
- console.log(arr);
- console.log(mapArr);
- let mang=[7,4,3,6,2,1]; //  Mảng có 6 phần tử
- let res= mang.reduce((previousValue,currentValue,currentIndex)=>{
-    // console.log(`${previousValue} & ${currentValue} & ${currentIndex}`);
-    console.log(`currentIndex : ${currentIndex} and element : ${mang[`${currentIndex}`]} and previousValue : ${previousValue}`);
-       return previousValue+currentValue;       
+let mapArr = arr.map((item) => {
+   // item=item*item;
+   return item && item > 4;
+})
+console.log(arr);
+console.log(mapArr);
+let mang = [7, 4, 3, 6, 2, 1]; //  Mảng có 6 phần tử
+let res = mang.reduce((previousValue, currentValue, currentIndex) => {
+   // console.log(`${previousValue} & ${currentValue} & ${currentIndex}`);
+   console.log(`currentIndex : ${currentIndex} and element : ${mang[`${currentIndex}`]} and previousValue : ${previousValue}`);
+   return previousValue + currentValue;
 
- })
- console.log(res);
+})
+console.log(res);
 // SORT 
-let months=['march','jan','feb','dec'];
+let months = ['march', 'jan', 'feb', 'dec'];
 months.sort();
 console.log(months);
-let numbers=[12,45,1,4,2,5];
+let numbers = [12, 45, 1, 4, 2, 5];
 // numbers.sort();
 console.log(numbers);//-> 12,1, 2, 3, 45, 4, 4  
-numbers.sort((item1,item2)=>{ 
+numbers.sort((item1, item2) => {
    // console.log(`check item1 = ${item1} and item2 =${item2} and value = ${item1-item2}`);
-   console.log(numbers);   
-      return item1-item2;   
+   console.log(numbers);
+   return item1 - item2;
 })
 console.log(numbers);
 
 
-let items = [ 
-     {id:1,name:  `tien`,age:19},
-     {id:2,name:`sasuke`,age:17},
-     {id:3,name:`naruto`,age:18}, 
+let items = [
+   { id: 1, name: `tien`, age: 19 },
+   { id: 2, name: `sasuke`, age: 17 },
+   { id: 3, name: `naruto`, age: 18 },
 ]
-items.sort((a,b)=>{
-   return a.age-b.age ;
+items.sort((a, b) => {
+   return a.age - b.age;
 });
 console.log(items);
 
@@ -165,3 +165,71 @@ console.log(items);
 //       return
 // })
 
+let persons = [
+   {
+      name: `tien`,
+      age: 19,
+      gender: `male`,
+   },
+   {
+      name: `konoha`,
+      age: 3000,
+      gender: `male`
+   },
+   {
+      name: `sarada`,
+      age: 200,
+      gender: `female`
+   },
+   {
+      name: `sasuke`,
+      age: 480,
+      gender: `male`
+   },
+   {
+      name: `sasuke`,
+      age: 500,
+      gender: `male`
+   },
+]
+persons.sort((a, b) => {
+   return a.age - b.age;
+})
+// list
+console.log(`this is list`);
+for (let i = 0; i < persons.length; i++) {
+   console.log(persons[i]);
+}
+// console.log(persons[1].age);
+// Delete a object in array
+console.log(`Delete a object`);
+for (let i = 0; i < persons.length; i++) {
+   if (persons[i].name === `sasuke`) {
+      persons.splice(i, 2);
+   }
+}
+for (let i = 0; i < persons.length; i++) {
+   console.log(persons[i]);
+}
+
+//Create a object in array
+console.log(`Create a object`);
+let b = { name: `uchiha`, age: 900, gender: `male` };
+persons.push(b);
+for (let i = 0; i < persons.length; i++) {
+   console.log(persons[i]);
+}
+
+// Update a object in array
+console.log(`Update a object`);
+for (let i = 0; i < persons.length; i++) {
+   console.log(persons[i].gender);
+   if ((persons[i].gender = `male`) && (persons[i].name != `tien`)) {
+      persons[i].name = `sasuke`;
+   }
+   // console.log(persons[i].gender);
+}
+console.log(`----------------------`)
+for (let i = 0; i < persons.length; i++) {
+   console.log(persons[i]);
+}
