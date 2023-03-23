@@ -233,3 +233,19 @@ console.log(`----------------------`)
 for (let i = 0; i < persons.length; i++) {
    console.log(persons[i]);
 }
+console.log(`this is my test-----------------------------------------`);
+let person={
+     name:`tien`,
+     age:20,
+     gender:`male`,
+     career: `Fullstack Developer`,
+    welcome: function(){
+        console.log(`hello world`);
+        return `my name is ${this.name}, i am ${this.age} years old, and now i am a ${this.career} in Viettel`
+    }
+   }
+ 
+ console.log(person.welcome());
+ 
+ 
+ 
