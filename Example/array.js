@@ -270,5 +270,9 @@ let firstProductElement = document.querySelector(".products-list .product:first-
 let buttonElements = document.querySelectorAll("button")
 
 let getTag = document.querySelector(".box-1 ");
+let res = getTag.getElementsByTagName("li");
 console.log(getTag);
+for (let i = 0; i < res.length; ++i) {
+        console.log(res[i]);
+}
 
