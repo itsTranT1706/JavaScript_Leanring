@@ -289,6 +289,13 @@ document.write(`<h2>Tran viet tien</h2>`);
 obj.show();
 let tag = document.querySelector("h1");
 tag.setAttribute("style","color:pink");
+obj.show();
 
+console.log(tag);
+console.log(tag.getAttribute("style"));
 
+let temp = `<h2 style= "color:blue">hello world</h2>`;
+
+document.write(temp);
+document.write(temp);
 
