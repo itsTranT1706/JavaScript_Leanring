@@ -287,4 +287,8 @@ let obj = {
 document.write(name);
 document.write(`<h2>Tran viet tien</h2>`);
 obj.show();
+let tag = document.querySelector("h1");
+tag.setAttribute("style","color:pink");
+
+
 
