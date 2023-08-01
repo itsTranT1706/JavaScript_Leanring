@@ -10,3 +10,12 @@ nodeHeading.style.color ="green"
 nodeHeading.style.width = "100px";
 nodeHeading.style.height= "100px";
 nodeHeading.style.backgroundColor = "blue";
+document.write("<h3>solution 2:  using object.assign()</h3>");
+let target = document.querySelector("h3");
+Object.assign(target.style, {
+    backgroundColor:"black",
+    color:"pink",
+    width : "500px",
+    height: "500px",
+})
+
