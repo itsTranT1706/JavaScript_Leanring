@@ -1,40 +1,24 @@
-// // // //solution1:
-// // // let nodeRed = document.querySelector(".red");
-// // // let nodeP = document.querySelector("p");
-// // // nodeP.setAttribute("style","color:#f05123");
-// // // nodeRed.setAttribute("style","background-color:#f00");
-
-// // //solution 2:
-// // let nodeRed = document.querySelector(".red");
-// // nodeRed.style.backgroundColor = "#f00";
-// // let nodeP = document.querySelector("p");
-// // nodeP.style.color="#f05123";
-
-// //solution 3:
-// Object.assign(document.querySelector(".red").style, {
-//     backgroundColor :"#f00",
-
-// })
-// Object.assign(document.querySelector("p").style, {
-//     color:"#f05123",
-// })
-let nodeHead = document.querySelector(".head");
-console.log([nodeHead.classList])
-nodeHead.classList.add("color");
-console.log(nodeHead.classList.contains("color"));
-// console.log(nodeHead.classList.remove("color"));
-// setTimeout(() => {
-//     nodeHead.classList.remove("color");
-// }, 5000);
-let button = document.querySelector(".button");
-Object.assign(button.style, {
-    width:"100px",
-    height:"100px",
-    backgroundColor:"blue",
+document.write(`<h1></h1>`);
+let nodeTag= document.querySelector("h1");
+nodeTag.setAttribute("class","heading");
+let nodeHeading = document.querySelector(".heading");
+Object.assign(nodeHeading.style, {
+    width :"100px",
+    height :"100px",
+    color:"white",
 })
-// setInterval(()=>{
-//     button.classList.toggle("color")
-// },1000)
-setInterval(()=> { 
-    nodeHead.classList.toggle("color")
-}, 1000)
+nodeHeading.innerHTML="tran viet tien";
+
+nodeHeading.classList.add("pink");
+let i=0;
+setInterval(()=> {
+            if (i<10) {
+                nodeHeading.classList.toggle("black");
+                i++;
+            }
+            else {
+                clearInterval();
+            }
+},500)
+
+console.log(nodeHeading.style)
