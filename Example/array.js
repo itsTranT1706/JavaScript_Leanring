@@ -19,6 +19,7 @@ setInterval(()=> {
             else {
                 clearInterval();
             }
+            
 },500)
 
 console.log(nodeHeading.style)
