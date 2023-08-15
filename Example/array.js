@@ -1,19 +1,23 @@
-document.write("<h1></h1>");
-let h1Element = document.querySelector("h1");
-h1Element.classList.add("box");
-h1Element.innerHTML="click here!"
-h1Element.onclick  = function(e) {
-    console.log(e.target.innerHTML);
-    document.write(e.target.innerHTML)
-    // alert("hello world !")
+let inputElement = document.querySelector(`input[type="text"]`);
+// console.log(inputElement);
+inputElement.onchange = function(e) {
+  console.log(e.target.value); //log ra khi blur ra ngoai!
 }
-h1Element.addEventListener("click",(e)=> {
-    console.log("xin chao cau!");   
-})
-let h3Elements = document.querySelectorAll("h3");
-// console.log(h3Elements)
-for (let i =0; i<h3Elements.length; ++i) {
-      h3Elements[i].onclick = function (e) {
-        console.log(e.target)
-      }
+inputElement.oninput = function(e) {
+  console.log(e.target.value);
+}
+
+let checkBox = document.querySelector(`input[type= "checkbox"]`) ;
+// console.log(checkBox)
+checkBox.oninput = function(e) {
+  console.log(e.target.value) 
+
+}
+checkBox.onchange = (e)=> {
+  console.log(e.target.checked)
+}
+
+let selectElement = document.querySelector(`select`);
+selectElement.onchange  = function(e) {
+  console.log(e.target.value)
 }
