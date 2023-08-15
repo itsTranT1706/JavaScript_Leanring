@@ -1,15 +1,19 @@
-// let arrTag = document.querySelectorAll("div");
-// arrTag.forEach((item) => {
-//     item.classList.add("box");
-//     return item;
-// })
-// console.log(arrTag)
-
-//solution 2:
-let htmlCollection = document.getElementsByTagName("div");
-let arrTag = Array.from(htmlCollection);
-arrTag.forEach((item) => {
-    item.classList.add("box");
-    return item;
+document.write("<h1></h1>");
+let h1Element = document.querySelector("h1");
+h1Element.classList.add("box");
+h1Element.innerHTML="click here!"
+h1Element.onclick  = function(e) {
+    console.log(e.target.innerHTML);
+    document.write(e.target.innerHTML)
+    // alert("hello world !")
+}
+h1Element.addEventListener("click",(e)=> {
+    console.log("xin chao cau!");   
 })
-console.log(arrTag);
+let h3Elements = document.querySelectorAll("h3");
+// console.log(h3Elements)
+for (let i =0; i<h3Elements.length; ++i) {
+      h3Elements[i].onclick = function (e) {
+        console.log(e.target)
+      }
+}
