@@ -1,32 +1,14 @@
-// let divElement = document.querySelector("div");
-// divElement.onclick = function(e) {
-//      console.log("div");
-// }
-// let buttonElement = document.querySelector("button");
-// buttonElement.onclick = function(e) {
-//       e.stopPropagation();//stopPropagation() stops an event from bubbling or propagating up the DOM tree.
-//       console.log("click me!");
-
-// }
-// let ulElement = document.querySelector("ul");
-// ulElement.onmousedown = function(e) {
-//       e.preventDefault();//preventDefault() prevents the default browser behavior for a given element.
-// }
-
-let buttonElement  = document.querySelector("#btn");
-console.log(buttonElement);
-buttonElement.onclick = function(e) {
-            console.log("hello");
-            Object.assign(buttonElement.style,{
-                  color : "red",
-            });
-            // alert("xin chao Tran Viet Tien");
-
+/**Bài tập: Cho trước thẻ button, hãy viết code JS sao cho mỗi lần click vào button 
+ * sẽ đổi màu chữ của button lần lượt sang màu red, blue, green và sau 3 giây chỉ
+ *  đổi màu red và blue (bỏ màu green) */
+let buttonElement = document.querySelector("button");
+function red() {
+      buttonElement.classList.add("red");
 }
-function job1() {
-            console.log("day la addEventListen")
+function blue() {
+      buttonElement.classList.add("blue");
 }
-buttonElement.addEventListener("click",job1);
-setTimeout(()=> {
-      buttonElement.removeEventListener("click",job1);
-},3000)
+buttonElement.addEventListener("mousedown",red)
+// buttonElement.removeEventListener("click",red)
+buttonElement.addEventListener("mouseup",blue)
+// buttonElement.addEventListener("click",green)
