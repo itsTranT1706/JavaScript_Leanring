@@ -2,6 +2,7 @@ ul {
     display: none;
 }
 
-input:focus ~ul { /* ~ lấy element đằng sau input*/
+input:focus~ul {
+    /* ~ lấy element đằng sau input*/
     display: block;
 }
