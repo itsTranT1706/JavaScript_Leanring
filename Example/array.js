@@ -1,11 +1,14 @@
+let divElement = document.querySelector("div");
+divElement.onclick = function(e) {
+     console.log("div");
+}
+let buttonElement = document.querySelector("button");
+buttonElement.onclick = function(e) {
+      e.stopPropagation();
+      console.log("click me!");
+
+}
 let ulElement = document.querySelector("ul");
-ulElement.onmousedown = function (e) {
+ulElement.onmousedown = function(e) {
       e.preventDefault();
-}
-ulElement.onclick = function (e) {
-      console.log(e.target.innerHTML)
-}
-let input = document.querySelector(`input[type="text"]`);
-ulElement.onclick = function (e) {
-      input.value = e.target.innerHTML;
 }
