@@ -24,23 +24,21 @@
 // // setTimeout(()=> {
 // // },3000)
 let button = document.querySelector("button")
-    colors = [`red`,`blue`,`green`];
 
-button.onclick = function () {
-    color = colors.shift();
-    colors.push(color);
-    button.style.color = color;
-    
-};
+function changeColor() {
+      let colors = [`red`,`blue`,`green`];
+      let color = colors.shift();
+      colors.push(color);
+      button.style.color = color;
+      
+}
+button.addEventListener("click",changeColor())
 setTimeout(()=> {
       colors = [`red`,`blue`];
       button.onclick = function () {
             color = colors.shift();
             colors.push(color);
             // console.log(colors);
-     
                   button.style.color = color;
-            
-            
         };
 },3000)
