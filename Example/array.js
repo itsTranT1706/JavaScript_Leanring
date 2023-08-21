@@ -1,6 +1,8 @@
 // /**Bài tập: Cho trước thẻ button, hãy viết code JS sao cho mỗi lần click vào button 
 //  * sẽ đổi màu chữ của button lần lượt sang màu red, blue, green và sau 3 giây chỉ
 //  *  đổi màu red và blue (bỏ màu green) */
+
+
 // let buttonElement = document.querySelector("button");
 // function red() {
 //       buttonElement.classList.toggle("red");
@@ -31,16 +33,14 @@ button.onclick = function () {
     
 };
 setTimeout(()=> {
+      colors = [`red`,`blue`];
       button.onclick = function () {
             color = colors.shift();
             colors.push(color);
-            console.log(colors);
-            if (color===`green`) {
-                  button.style.color = colors[colors.indexOf(color)-1];
-            }
-            else {
+            // console.log(colors);
+     
                   button.style.color = color;
-            }
+            
             
         };
 },3000)
