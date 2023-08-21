@@ -8,7 +8,7 @@ function red() {
 function blue() {
       buttonElement.classList.add("blue");
 }
-buttonElement.addEventListener("mousedown",red)
+buttonElement.addEventListener("click",red)
 // buttonElement.removeEventListener("click",red)
-buttonElement.addEventListener("mouseup",blue)
+buttonElement.addEventListener("click",blue)
 // buttonElement.addEventListener("click",green)
