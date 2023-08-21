@@ -4,6 +4,7 @@ button {
     height: 50px;
     align-items: center;
     margin-left: 50%;
+    color:white;
 }
 .red {
     color:red;
