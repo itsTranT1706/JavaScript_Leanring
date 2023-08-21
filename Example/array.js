@@ -34,13 +34,13 @@ setTimeout(()=> {
       button.onclick = function () {
             color = colors.shift();
             colors.push(color);
-            if (color!=="green") {
-                
+            console.log(colors);
+            if (color===`green`) {
+                  button.style.color = colors[colors.indexOf(color)-1];
+            }
+            else {
                   button.style.color = color;
             }
-            // else {
-            //       button.style.color = "red";
-            // }
             
         };
 },3000)
