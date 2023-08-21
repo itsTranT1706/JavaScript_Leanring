@@ -3,12 +3,21 @@
  *  đổi màu red và blue (bỏ màu green) */
 let buttonElement = document.querySelector("button");
 function red() {
-      buttonElement.classList.add("red");
+      buttonElement.classList.toggle("red");
 }
 function blue() {
-      buttonElement.classList.add("blue");
+      buttonElement.classList.toggle("blue");
 }
-buttonElement.addEventListener("click",red)
-// buttonElement.removeEventListener("click",red)
-buttonElement.addEventListener("click",blue)
-// buttonElement.addEventListener("click",green)
+function green() {
+      buttonElement.classList.toggle("green");
+}
+buttonElement.addEventListener("click",(e)=> {
+      red();
+      // e.stopPropagation();
+      buttonElement.addEventListener("click",()=> {
+            blue();
+            buttonElement.addEventListener("click",green);
+      });
+})
+// setTimeout(()=> {
+// },3000)
