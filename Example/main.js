@@ -1,55 +1,40 @@
-// // //Promise?
-// // setTimeout(()=> {
-// //         console.log("1");
-// // },3000);
-// // console.log("2");
 
-//  //set up Promise 
-//  //1.new Promise
-//  //2.Executor
-//  let promise = new Promise(
-//         // Executor
-//         function(resolve, reject) {
-//                 //logic
-//                 //success : resolve()
-//                 //failure : reject()
-//                 resolve([
-//                         {
-//                                 id : 1,
-//                                 name:`tran viet tien`
-//                         }
-//                 ]);
-//         }
-//  )
-//  promise 
-//     .then(fucntion(person) {   // resolve() is called
-//                 console.log(person);
-//     } )
-//     .catch(fucntion() {  //reject()     is called
-//                 console.log("failure")
-//     } )
-//     .finally(fucntion() { 
-//                 console.log("done")
-//     } )
+function hell(value, cb) {
+    cb(value);
+}
 
-new Promise(function(resolve, reject) {
+// Không sử dụng Promise dẫn đến tạo ra callback hell 
+hell(1, function (valueFromA) {
+    hell(valueFromA + 1, function (valueFromB) {
+        hell(valueFromB + 1, function (valueFromC) {
+            hell(valueFromC + 1, function (valueFromD) {
+                console.log(valueFromD + 1);
+            });
+        });
+    });
+});
 
-        setTimeout(() => resolve('em yêu anh'), 5000); // (*)
-        
-        }).then(function(result) { // (**)
-        
-        alert(result); // em yêu anh
-        return 'kiss thôi...';
-        
-        }).then(function(result) { // (***)
-        
-        alert(result); // kiss thôi
-        return 'xxx thôi';
-        
-        }).then(function(result) {
-        
-        alert(result); // xxx thôi 
-        return 'oh yea baby'; //kakakakak
-        
-        })
-        
+// Sử dụng Promise sẽ tạo ra đoạn code dễ đọc hơn và vẫn đảm bảo đúng logic
+function notHell(value) {
+    return new Promise(function (resolve) {
+        resolve(value);
+    });
+}
+
+notHell(1)
+    .then(function (value) {
+        return value + 1;
+    })
+    .then(function (value) {
+        return value + 1;
+    })
+    .then(function (value) {
+        return value + 1;
+    })
+    .then(function (value) {
+        console.log(value + 1);
+    });
+
+
+
+
