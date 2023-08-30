@@ -1,44 +1,17 @@
-// /**:Bài toán: sau 1 giây log ra 1,2,3,4 */
+let promise1 = Promise.resolve(`success!`);
+promise1
+        .then((res)=> {
+            console.log(res);
+        })
 
-// //callbackHell
-// console.log("--------callback-------");
-// function sleep(ms) {
-//     setTimeout(() => {
-//         console.log(1);
-//         setTimeout(() => {
-//             console.log(2);
-//             setTimeout(() => {
-//                 console.log(3);
-//                 setTimeout(() => {
-//                     console.log(4)
-//                 }, ms);
-//             }, ms);
-//         }, ms);
-//     }, ms);
-// }
-// sleep(1000)
+let promise2 = Promise.reject("error!");
+promise2    
+        .catch((res)=> {
+            console.log(res);
+        })
 
-//by Promise
-console.log("-------Promise--------");
-function unsleep(ms) {
-    return new Promise((resolve) => {
-        setTimeout(resolve, ms);
-    })
-}
-unsleep(1000)
-        .then(()=> {
-            console.log("1");
-            return unsleep(1000);
-        })
-        .then(()=> {
-            console.log("2");
-            return unsleep(1000);
-        })
-        .then(()=> {
-            console.log("3");
-            return unsleep(1000);
-        })
-        .then(()=> {
-            console.log("4");
-            return unsleep(1000);
-        })
+let promise3 = Promise.all([promise1]);
+promise3 
+            .then ((res)=> {
+                console.log((res));
+            })
