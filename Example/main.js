@@ -1,17 +1,20 @@
-let promise1 = Promise.resolve(`success!`);
-promise1
-        .then((res)=> {
-            console.log(res);
-        })
+/**Let's do some practice with a simple exercice. You must modify the code below based on the following rules:
 
-let promise2 = Promise.reject("error!");
-promise2    
-        .catch((res)=> {
-            console.log(res);
-        })
+The function job must return a promise object (you are in a NodeJS environment, you can use new Promise)
+The promise must resolve itself 2 seconds after the call to job and must provide hello world in the data */
 
-let promise3 = Promise.all([promise1]);
-promise3 
-            .then ((res)=> {
-                console.log((res));
-            })
+//solve
+function job() {
+    return new Promise((resolve,reject)=> {
+        setTimeout(()=> {
+            resolve(`hello world`)
+        },2000)
+    })
+promise 
+   .then((value)=> {
+        return value;
+   })
+    // return 'hello world';
+}
+
+module.exports = job;
