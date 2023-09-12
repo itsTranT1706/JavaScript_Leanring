@@ -1,35 +1,11 @@
-/**Let's do a harder exercise. In this code, your function receives a parameter data. You must modify the code below based on the following rules:
-
-Your function must always return a promise
-If data is not a number, return a promise rejected instantly and give the data "error" (in a string)
-If data is an odd number, return a promise resolved 1 second later and give the data "odd" (in a string)
-If data is an even number, return a promise rejected 2 seconds later and give the data "even" (in a string) */
-
-function job(data) {
-    return new Promise((resolve,reject)=> {
-            if (isNaN(data)===true) {
-                reject("error");
-            }
-            else {
-                if (data%2===0) {
-                   setTimeout(()=>{ 
-                        reject("even");
-                   },2000)
-                }
-            else {
-                setTimeout(() => {
-                    resolve("odd");
-                }, 1000);
-            }
-            }
-    }) 
-promise 
-    .then((value)=> {
-        return value;
-    })
-    .catch((value)=> {
-        return value;
-    })
-
-} 
-console.log(job(3)) 
+let postApi =  ` https://jsonplaceholder.typicode.com/todos/`;
+let temp;
+fetch(postApi)
+        .then((response)=> {
+            return  response.json();
+        })
+        .then((post)=> {
+         console.log(post);
+        })
+        
+    
