@@ -1,23 +1,26 @@
-let postApi = ` https://jsonplaceholder.typicode.com/todos/`;
-let temp;
-fetch(postApi)
-    .then((response) => {
-        return response.json();
-    })
-    .then((posts) => {
-        // console.log(posts);
-        let html = "";
-        html = posts.map((post) => {
-            return `<ul>${post.id}  <li>${post.title}</li> </li></ul>    `
 
-        })
-        let htmls = html.join(``);
-        alert("success!");
-        document.getElementById("data").innerHTML = htmls;
+// console.log(listCoursesBlock);
+let courseApi = "http://localhost:3000/courses";
 
-    })
-    .catch(() => {
-        alert("can't get data from this api");
-    })
+function start() {
+    getCourses(renderCourses)
+}
+start();
+function getCourses(callback) {
+    fetch(courseApi)
+    .then(response => response.json())
+        .then(callback);
 
+}
+function renderCourses(courses) {
+    let listCoursesBlock = document.querySelector("#list-courses");
+    let htmls = courses.map((course) => {
+        return ` <li>`+
+        `<h4>${course.name}</h4>`+
+        `<p>${course.description}</p>`+
+        `</li>`
+    });
+    console.log(htmls);
+    listCoursesBlock.innerHTML = htmls.join("");
 
+}
