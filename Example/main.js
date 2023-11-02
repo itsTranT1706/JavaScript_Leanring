@@ -1,6 +1,6 @@
 
 // console.log(listCoursesBlock);
-let courseApi = "http://localhost:3000/courses";
+let courseApi = "http://localhost:3000/courses/";
 
 function start() {
     getCourses(renderCourses);
@@ -16,10 +16,11 @@ function getCourses(callback) {
 function renderCourses(courses) {
     let listCoursesBlock = document.querySelector("#list-courses");
     let htmls = courses.map((course) => {
-        return ` <li>` +
-            `<h4>${course.name}</h4>` +
-            `<p>${course.description}</p>` +
-            `</li>`
+        return ` <li>
+            <h4>${course.name}</h4>
+            <p>${course.description}</p>
+           <button onclick = "deleteCourse(${course.id})">Delete</button>
+            </li>`
     });
     console.log(htmls);
     listCoursesBlock.innerHTML = htmls.join("");
@@ -37,6 +38,17 @@ function createCourse(data, callback) {
         .then(response => response.json())
         .then(callback);
 
+}
+function deleteCourse(id) {
+    fetch(courseApi+id, {
+        method: "DELETE", // *GET, POST, PUT, DELETE, etc.
+        headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+    })
+        .then(response => response.json())
+        .then( getCourses(renderCourses));
 }
 function handleCreateForm() {
     let createBtn = document.querySelector("#create");
