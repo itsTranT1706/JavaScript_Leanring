@@ -40,7 +40,7 @@ function createCourse(data, callback) {
 
 }
 function deleteCourse(id) {
-    fetch(courseApi+id, {
+    fetch(courseApi + id, {
         method: "DELETE", // *GET, POST, PUT, DELETE, etc.
         headers: {
             "Content-Type": "application/json",
@@ -48,7 +48,7 @@ function deleteCourse(id) {
         },
     })
         .then(response => response.json())
-        .then( getCourses(renderCourses));
+        .then(getCourses(renderCourses));
 }
 function handleCreateForm() {
     let createBtn = document.querySelector("#create");
