@@ -17,9 +17,11 @@ function renderCourses(courses) {
     let listCoursesBlock = document.querySelector("#list-courses");
     let htmls = courses.map((course) => {
         return ` <li class="data-${course.id}">
-            <h4>${course.name}</h4>
-            <p>${course.description}</p>
+         <h4 class="name-${course.id}">${course.name}</h4>
+            <p class="description-${course.id}">${course.description}</p>
            <button onclick = "deleteCourse(${course.id})">Delete</button>
+           <button onclick = "handleUpdateCourse(${course.id})">Edit</button>
+
             </li>`
     });
     console.log(htmls);
@@ -39,6 +41,17 @@ function createCourse(data, callback) {
         .then(callback);
 
 }
+function updateCourse(id, callback) {
+    fetch(courseApi + id, {
+        method: "PATCH", // *GET, POST, PUT, DELETE, etc.
+        headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+    })
+        .then(response => response.json())
+        .then(callback)
+}
 function deleteCourse(id) {
     fetch(courseApi + id, {
         method: "DELETE", // *GET, POST, PUT, DELETE, etc.
@@ -48,8 +61,8 @@ function deleteCourse(id) {
         },
     })
         .then(response => response.json())
-        .then(()=> {
-            let data= document.querySelector(".data-"+id);
+        .then(() => {
+            let data = document.querySelector(".data-" + id);
             data.remove();
         });
 }
@@ -64,5 +77,14 @@ function handleCreateForm() {
         }
         createCourse(formData, getCourses(renderCourses));
         // console.log(name);
+    }
+}
+function handleUpdateCourse(id) {
+    let editBtn = document.querySelector(".data-" + id);
+    let name = document.querySelector(".name-" + id).textContent;
+    let description = document.querySelector(`.description-` + id).textContent;
+
+    editBtn.onclick = function () {
+        
     }
 }
