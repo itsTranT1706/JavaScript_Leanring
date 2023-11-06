@@ -41,16 +41,17 @@ function createCourse(data, callback) {
         .then(callback);
 
 }
-function updateCourse(id, callback) {
+function updateCourse(id,data) {
     fetch(courseApi + id, {
         method: "PATCH", // *GET, POST, PUT, DELETE, etc.
         headers: {
             "Content-Type": "application/json",
             // 'Content-Type': 'application/x-www-form-urlencoded',
         },
+         body: JSON.stringify(data), // body data type must match "Content-Type" header
     })
         .then(response => response.json())
-        .then(callback)
+        .then(getCourses(renderCourses))
 }
 function deleteCourse(id) {
     fetch(courseApi + id, {
@@ -84,7 +85,25 @@ function handleUpdateCourse(id) {
     let name = document.querySelector(".name-" + id).textContent;
     let description = document.querySelector(`.description-` + id).textContent;
 
-    editBtn.onclick = function () {
-        
+    editBtn.onclick = function() {
+        let card  = document.querySelector(".card");
+        Object.assign(card.style, {
+            display:"block"
+        })
+        let name1 = document.querySelector(`input[name="name1"]`);
+        let description1= document.querySelector(`input[name="Description1"]`);
+        name1.setAttribute("value",`${name}`);
+        description1.setAttribute("value",`${description}`);
+        let saveBtn = document.querySelector("#save");
+        saveBtn.onclick = function() {
+            updateCourse(id, {
+                name: name1.value,
+                    description: description1.value
+                });  
+                Object.assign(card.style, {
+                    display:"none"
+                })
+
+        }
     }
 }
