@@ -89,6 +89,7 @@ function handleUpdateCourse(id) {
         let card  = document.querySelector(".card");
         Object.assign(card.style, {
             display:"block"
+            
         })
         let name1 = document.querySelector(`input[name="name1"]`);
         let description1= document.querySelector(`input[name="Description1"]`);
